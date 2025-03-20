@@ -19,6 +19,16 @@ body{
 }
 .settings{
     position: absolute;
-    right: 0;
-    bottom: 0;
+    right: 20px;
+    bottom: 20px;
+    display: flex;
+    gap: 20px;
+}
+.settings .fa-gear{
+    font-size: 2rem;
+    color: white;
+}
+.settings-content{
+    display: flex;
+    gap: 20px;
 }
