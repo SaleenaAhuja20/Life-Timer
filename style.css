@@ -27,8 +27,38 @@ body{
 .settings .fa-gear{
     font-size: 2rem;
     color: white;
+    bottom: 10px;
 }
 .settings-content{
     display: flex;
     gap: 20px;
+}
+.settings-content input{
+    padding: 10px 9px;
+    font-weight: 700;
+}
+.settings-content button{
+    padding: 10px 10px;
+    font-weight: 600;
+    border: none;
+    border-radius: 10px;
+    transition: all 0.1s ease-in;
+}
+.settings-content button:hover{
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
+.hide{
+    display: none;
+}
+.time-container{
+    display: flex;
+    width: 80%;
+    justify-content:space-around;
+    margin-top: 10px;
+}
+.container2{
+   
+    place-items: center;
 }
