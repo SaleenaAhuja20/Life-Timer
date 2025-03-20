@@ -7,7 +7,15 @@ body{
     background: url(/image.jpg);
     background-repeat: no-repeat;
     background-size: 220vh 100vh; /* width height */
-    
-
-
+    font-family: "Oswald", sans-serif;
+}
+.container{
+    height: 100vh;
+    display: grid;
+    place-items: center;
+}
+.para{
+    font-size: 50px;
+}
+.settings{
 }
