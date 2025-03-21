@@ -29,20 +29,20 @@ const changeText = () =>{
         oldPara.classList.add("hide");
         newPara.classList.remove("hide");
     }
-    updateAge();
+    setInterval(() => updateAge(), 1000);
 };
 const updateAge = () =>{
     let currdate = new Date();
    
     let dateDifference = currdate - dateOfBirth;
     const years = Math.floor(dateDifference/(1000*60*60*24*365));
-    const months = Math.floor(dateDifference%(1000*60*60*24*365) / (1000*60*60*24*30));
-    const days = Math.floor(dateDifference%(1000*60*60*24*30) / (1000 * 60 * 60 * 24));
-    const hours = Math.floor(dateDifference%(1000*60*60*24)/ (1000 * 60 * 60));
-    const minutes = Math.floor(dateDifference%(1000*60*60)/ (1000 * 60));
-    const seconds = Math.floor(dateDifference%(1000*60) / 1000);
+    const months = Math.floor(dateDifference / (1000*60*60*24*365)) % 12;
+    const days = Math.floor(dateDifference / (1000*60*60*24)) % 30;
+    const hours = Math.floor(dateDifference/ (1000*60*60))  % 24;
+    const minutes = Math.floor(dateDifference / (1000*60))  % 60;
+    const seconds = Math.floor(dateDifference / (1000)) % 60;
     
-    year.innerText = years;
+    year.textContent = years;
     month.textContent = months;
     day.textContent = days;
     hour.textContent = hours;
