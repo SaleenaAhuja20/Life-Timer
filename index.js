@@ -38,10 +38,16 @@ const updateAge = () =>{
     const years = Math.floor(dateDifference/(1000*60*60*24*365));
     const months = Math.floor(dateDifference%(1000*60*60*24*365) / (1000*60*60*24*30));
     const days = Math.floor(dateDifference%(1000*60*60*24*30) / (1000 * 60 * 60 * 24));
-    const hours = Math.floor(dateDifference/(1000*60*60*24)/ (1000 * 60 * 60));
-    const minutes = Math.floor(dateDifference/(1000*60*60)/ (1000 * 60));
-    const seconds = Math.floor(dateDifference/(1000*60) / 1000);
-    console.log(`Age: ${years} years, ${months} months, ${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds`);
+    const hours = Math.floor(dateDifference%(1000*60*60*24)/ (1000 * 60 * 60));
+    const minutes = Math.floor(dateDifference%(1000*60*60)/ (1000 * 60));
+    const seconds = Math.floor(dateDifference%(1000*60) / 1000);
+    
+    year.innerText = years;
+    month.textContent = months;
+    day.textContent = days;
+    hour.textContent = hours;
+    minute.textContent = minutes;
+    second.textContent = seconds;
 };
 
 settingIcon.addEventListener('click', showDate);
