@@ -23,16 +23,26 @@ const showDate = () => {
     }
    
 };
-settingIcon.addEventListener('click', showDate);
-
 const changeText = () =>{
-    dateOfBirth = dobInput.value;
-    console.log(" ", dateOfBirth);
+    dateOfBirth = new Date(dobInput.value);
     if(dateOfBirth){
         oldPara.classList.add("hide");
         newPara.classList.remove("hide");
     }
+    updateAge();
 };
-dobButton.addEventListener('click', changeText);
+const updateAge = () =>{
+    let currdate = new Date();
+   
+    let dateDifference = currdate - dateOfBirth;
+    const years = Math.floor(dateDifference/(1000*60*60*24*365));
+    const months = Math.floor(dateDifference%(1000*60*60*24*365) / (1000*60*60*24*30));
+    const days = Math.floor(dateDifference%(1000*60*60*24*30) / (1000 * 60 * 60 * 24));
+    const hours = Math.floor(dateDifference/(1000*60*60*24)/ (1000 * 60 * 60));
+    const minutes = Math.floor(dateDifference/(1000*60*60)/ (1000 * 60));
+    const seconds = Math.floor(dateDifference/(1000*60) / 1000);
+};
 
+settingIcon.addEventListener('click', showDate);
+dobButton.addEventListener('click', changeText);
 
