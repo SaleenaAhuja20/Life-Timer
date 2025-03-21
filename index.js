@@ -13,6 +13,9 @@ let second = document.querySelector(".second");
 let isDobOpen = false;
 let dateOfBirth;
 
+const makeTwoDigitNumber = (number) =>{
+return number > 9 ? number : `0${number}`;
+}
 const showDate = () => {
     if(isDobOpen === false){
         settingContent.classList.remove("hide");
@@ -29,6 +32,7 @@ const changeText = () =>{
         oldPara.classList.add("hide");
         newPara.classList.remove("hide");
     }
+    updateAge();
     setInterval(() => updateAge(), 1000);
 };
 const updateAge = () =>{
@@ -36,18 +40,20 @@ const updateAge = () =>{
    
     let dateDifference = currdate - dateOfBirth;
     const years = Math.floor(dateDifference/(1000*60*60*24*365));
-    const months = Math.floor(dateDifference / (1000*60*60*24*365)) % 12;
-    const days = Math.floor(dateDifference / (1000*60*60*24)) % 30;
+    const remainingDaysAfterYears = dateDifference % (1000 * 60 * 60 * 24 * 365);
+    const months = Math.floor(remainingDaysAfterYears / (1000 * 60 * 60 * 24 * 30)); // Approximate month calculation
+    const remainingDaysAfterMonths = remainingDaysAfterYears % (1000 * 60 * 60 * 24 * 30);
+    const days = Math.floor(remainingDaysAfterMonths / (1000 * 60 * 60 * 24));
     const hours = Math.floor(dateDifference/ (1000*60*60))  % 24;
     const minutes = Math.floor(dateDifference / (1000*60))  % 60;
     const seconds = Math.floor(dateDifference / (1000)) % 60;
     
-    year.textContent = years;
-    month.textContent = months;
-    day.textContent = days;
-    hour.textContent = hours;
-    minute.textContent = minutes;
-    second.textContent = seconds;
+    year.textContent = makeTwoDigitNumber(years);
+    month.textContent =makeTwoDigitNumber (months);
+    day.textContent = makeTwoDigitNumber(days);
+    hour.textContent = makeTwoDigitNumber(hours);
+    minute.textContent = makeTwoDigitNumber(minutes);
+    second.textContent = makeTwoDigitNumber(seconds);
 };
 
 settingIcon.addEventListener('click', showDate);
