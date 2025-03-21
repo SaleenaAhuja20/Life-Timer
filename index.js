@@ -41,6 +41,7 @@ const updateAge = () =>{
     const hours = Math.floor(dateDifference/(1000*60*60*24)/ (1000 * 60 * 60));
     const minutes = Math.floor(dateDifference/(1000*60*60)/ (1000 * 60));
     const seconds = Math.floor(dateDifference/(1000*60) / 1000);
+    console.log(`Age: ${years} years, ${months} months, ${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds`);
 };
 
 settingIcon.addEventListener('click', showDate);
